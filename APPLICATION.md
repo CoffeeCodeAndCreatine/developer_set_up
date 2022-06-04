@@ -13,5 +13,5 @@ apps I use, their status as of Jun 4 2022, and replacements as applicable.
 | Visual Studio Code | Apple Silicon Native            | NA|
 | XCode | Apple Silicon Native            | NA|
 | Spectacle | End Of Life | Rectangle App| 
-
+| Keyboard Maestro| Apple Silicon Native | NA|
 

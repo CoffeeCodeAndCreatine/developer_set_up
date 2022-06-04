@@ -130,7 +130,19 @@ We will be installing pyenv via our terminal though home brew.
 ```bash
 brew install pyenv
 ```
-Once you have pyenv installed, you are going to get something called shims added to your path.
+
+Once you have pyenv installed we will need to add it to your profile and source the profile. Your machine should have a file `~/.zprofile`. Add the following lines to the file.
+```bash
+#Pyenv Set Up
+export PYENV_ROOT=$HOME/.pyenv
+eval "$(pyenv init -)"
+```
+and resource the file
+```bash
+source ~/.zprofile
+```
+
+Once you installed and sourced your new profile, you are going to get something called shims added to your path.
 
 **Pyenv Path**
 ```bash
@@ -148,7 +160,42 @@ Then, if you run `python --version` you should get 3.10.4.
 ### Step 7: Installing Java
 coming soon
 ### Step 8: Installing JavaScript
-coming soon
+Getting set up with javascirpt is pretty straight forward as of this point. The setup we are going to use is nvm (node version manager) to install node. Then we will use nvm to install both node and react.
+To install nvm and create a nvm dir run the following commands from your command line.
+```bash
+brew install nvm
+mkdir ~/.nvm
+```
+
+Once you have nvm installed, you are doing to need to add a few things to your zprofile. Add the following lines.
+```bash
+#NVM Set Up
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+```
+
+Once you have edited the zprofile, you will need to resource it.
+```bash
+source .zprofile
+```
+
+Once you have sourced your new profile, your path will now look something like this.
+
+**Node Path**
+```bash
+/Users/jacobdaigle/.nvm/versions/node/v18.3.0/bin:/Users/jacobdaigle/.pyenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+```
+
+Notice nvm is now on your path.
+
+From here we should be able to install node, and react. That can be done with the following two commands. These will install latest node and react.
+```bash
+nvm install node
+npm install react --save
+```
+
+
 
 ### Step 9: Git Hub
 Most likely if you are writing code you are using some version of source control. If you are using git, you are going to need to add an ssh key to git.
