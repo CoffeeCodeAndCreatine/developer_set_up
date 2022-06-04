@@ -17,7 +17,7 @@ In the event you are setting up an intel based mac, I have a playlist of videos 
 
 
 ## Before We Start
-Going from intel to m1 can be a bit of a trick. Some tools and set up work well for intel and do not for m1. Other apps are optimized for m1 while other will require rosetta.
+Going from intel to m1 can be a bit of a trick. Some tools and set up work well for intel and do not for m1. Other apps are optimized for m1 while other will require rosetta (For apps that are m1 optimized please see [Apps](APPLICATION.md)).
 This set up, should get you a clean environment with optimized apps, however it will require a few steps done in specific order, and a few edits to profiles and paths.
 The profiles, assuming the mac in untouched will not yet be created. A base path will look like this.
 
