@@ -46,7 +46,7 @@ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/jacobdaigle/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
-Going down the list of commands, the first installs homebrew. The second adds a line to your zprofile to initialize homebrew on start. The third line initialized homebrew for your current session.
+Going down the list of commands, the first installs homebrew. The second adds a line to your zprofile to initialize homebrew on start. The third line will initialize homebrew for your current session.
 
 In the event you will like a little extra reading on homebrew, you can explore the following links.
 * [Homebrew Docs](https://docs.brew.sh/)
@@ -73,7 +73,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ```
 This command uses curl to download and run an install script.
 
-In the event you would like a little extra reading on iterm, you can find their main page [here](https://ohmyz.sh/#install).
+In the event you would like a little extra reading on oh my zsh, you can find their main page [here](https://ohmyz.sh/#install).
 
 ### Step 5: Iterm2
 Terminal is nice, it does what it claims to do, but a lot could be added. This is where iterm2 comes in. This is an app, so no command line here. Just go to their site and install.
@@ -103,7 +103,7 @@ This can be done via your favorite text editor.
 #### Step 5.3: Fonts
 If you look at your terminal you are probably going to see a few characters that are not rendering correctly. They are going to look like little boxes. This is because we don't have the fonts that the theme wants. Let's intall those now.
 This process will include downloading a repo, installing fonts, and then setting a font in iterm.
-Cloning the repo can be down by running the following command in your terminal
+Cloning the repo can be done by running the following command in your terminal
 ```bash
 git clone https://github.com/powerline/fonts.git
 ```
@@ -112,7 +112,7 @@ After cloning the repo you need to run the install script from your terminal.
 cd fonts
 ./install
 ```
-This will install all the fonts into your system. From here, all you have to do is pick a font in iterm. This can be done by opinion the preferences (command + ,), going to profile, and then text.
+This will install all the fonts into your system. From here, all you have to do is pick a font in iterm. This can be done by opening the preferences (command + ,), going to profile, and then text.
 I typically use `Meslo LG S for Powerline`.
 
 #### Step 5.4: Colors
@@ -121,7 +121,7 @@ Cloning this repo will get you quite a few color options.
 ```bash
 git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git
 ```
-Once you have this repo cloned, you can open the preferences of iterm, go to profiles and then colors, hit the drop down, select import and select the color theme of choice to import.
+Once you have this repo cloned, you can open the preferences of iterm, go to profiles and then colors, hit the dropdown, select import and select the color theme of choice to import.
 The correct files for iterm will be found at `iterm2-Color-Schemes/schemes`
 
 ### Step 6: Installing Python
@@ -137,7 +137,7 @@ Once you have pyenv installed we will need to add it to your profile and source 
 export PYENV_ROOT=$HOME/.pyenv
 eval "$(pyenv init -)"
 ```
-and resource the file
+Be sure to source the file
 ```bash
 source ~/.zprofile
 ```
@@ -157,8 +157,62 @@ pyenv global 3.10.4
 ```
 
 Then, if you run `python --version` you should get 3.10.4. 
+
 ### Step 7: Installing Java
-coming soon
+Installing java is going to be a lot like installing python. Java has many versions as of this point, and we are going to need something to manage those versions. This is where `jenv` comes in.
+First install jenv
+```bash
+brew install jenv
+```
+
+Once you have jenv installed you will need to add the following lines to your profile
+```bash
+#Jenv Set Up
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+```
+
+Then you will need to resources your profile
+```bash
+source ~/.zprofile
+```
+
+From here you will need to enable jenv mvn plug ins.
+```bash
+jenv enable-plugin export
+jenv enable-plugin maven
+```
+
+At this point, you are probably going to want to restart your terminal.
+Once the terminal is restarted, we are going to want to install a few version of java. 
+```bash
+brew install java
+brew install AdoptOpenJDK/openjdk/adoptopenjdk{11,14}
+brew install AdoptOpenJDK/openjdk/adoptopenjdk8
+```
+This will give you java 8, 11, and 14. Don't worry if you get an error or two from the first command.
+From here we to add the java version to jenv
+```bash
+jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-14.jdk/Contents/Home
+jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home
+jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+```
+
+Now we can switch java versions by running the following
+```bash
+jenv global 14.0
+```
+
+Then run the following to make sure the java version was set
+```bash
+java --version
+```
+
+For more reading on java installation and jenv shortcuts, please see the following.
+* [Install Guide 1](https://chamikakasun.medium.com/how-to-manage-multiple-java-version-in-macos-e5421345f6d0)
+* [Install Guide 2](https://medium.com/@haoransd/install-multiple-openjdk-java-14963edfb9bf)
+
+
 ### Step 8: Installing JavaScript
 Getting set up with javascirpt is pretty straight forward as of this point. The setup we are going to use is nvm (node version manager) to install node. Then we will use nvm to install both node and react.
 To install nvm and create a nvm dir run the following commands from your command line.
@@ -195,10 +249,8 @@ nvm install node
 npm install react --save
 ```
 
-
-
 ### Step 9: Git Hub
-Most likely if you are writing code you are using some version of source control. If you are using git, you are going to need to add an ssh key to git.
+Most likely, if you are writing code you are using some version of source control. If you are using git, you are going to need to add an ssh key to git.
 In order to generate one on your local machine, run the following two commands
 ```bash
 ssh-keygen -t ed25519 -C "YOUR EMAIL"
