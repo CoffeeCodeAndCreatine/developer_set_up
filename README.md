@@ -212,6 +212,18 @@ For more reading on java installation and jenv shortcuts, please see the followi
 * [Install Guide 1](https://chamikakasun.medium.com/how-to-manage-multiple-java-version-in-macos-e5421345f6d0)
 * [Install Guide 2](https://medium.com/@haoransd/install-multiple-openjdk-java-14963edfb9bf)
 
+### Step 7.1: Installing Mvn
+Installing mvn is pretty straight forward. The first step is just to go download the zip or tar ball. This can be found [here](https://maven.apache.org/install.html)
+
+Once you have mvn downloaded, extract the file, and then place it in your macs `/opt` dir. 
+
+From there, just add mvn to your path by adding the following line to your zprofile
+```bash
+#Mvn set up
+export PATH=/opt/apache-maven-3.8.5/bin:$PATH
+```
+
+Resource your profile, and you are good to go.
 
 ### Step 8: Installing JavaScript
 Getting set up with javascirpt is pretty straight forward as of this point. The setup we are going to use is nvm (node version manager) to install node. Then we will use nvm to install both node and react.
