@@ -1,4 +1,4 @@
-# Mac Studio Developer Set Up
+# Mac Studio Developer Set Up <div style="float: right"> <a href="https://www.buymeacoffee.com/coffeecode6" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a> </div>
 
 ## Intro
 The purpose of this document is to go through my setup process for development on an untouched Mac.
